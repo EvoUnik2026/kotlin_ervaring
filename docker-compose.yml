@@ -51,8 +51,6 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-app_db}
       POSTGRES_USER: ${POSTGRES_USER:-app_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-app_password}
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -73,8 +71,6 @@ services:
       MARIADB_USER: ${MARIADB_USER:-app_user}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD:-app_password}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-root_password}
-    ports:
-      - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
     healthcheck:
@@ -127,7 +123,7 @@ services:
     profiles: ["postgres", "mariadb"]
     environment:
       GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER:-admin}
-      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD:-CHANGE_ME}
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD:?GF_SECURITY_ADMIN_PASSWORD must be set}
     ports:
       - "3000:3000"
     volumes:
