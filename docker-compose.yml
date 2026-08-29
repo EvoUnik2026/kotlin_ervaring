@@ -82,12 +82,28 @@ services:
       - web
     restart: unless-stopped
 
-  adminer:
+  adminer-postgres:
     image: adminer:4
-    container_name: kotlin-adminer
-    profiles: ["postgres", "mariadb"]
+    container_name: kotlin-adminer-postgres
+    profiles: ["postgres"]
     ports:
       - "8081:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - web
+    restart: unless-stopped
+
+  adminer-mariadb:
+    image: adminer:4
+    container_name: kotlin-adminer-mariadb
+    profiles: ["mariadb"]
+    ports:
+      - "8081:8080"
+    depends_on:
+      mariadb:
+        condition: service_healthy
     networks:
       - web
     restart: unless-stopped
