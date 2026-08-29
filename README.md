@@ -23,13 +23,15 @@ cp .env.example .env
 2. Start with PostgreSQL:
 
 ```bash
-docker compose --profile postgres up -d
+docker compose --profile postgres up -d postgres
+docker compose --profile postgres up -d app adminer loki promtail grafana
 ```
 
 Or start with MariaDB:
 
 ```bash
-docker compose --profile mariadb up -d
+docker compose --profile mariadb up -d mariadb
+docker compose --profile mariadb up -d app adminer loki promtail grafana
 ```
 
 3. Open:
