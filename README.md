@@ -36,7 +36,7 @@ docker compose --profile mariadb up -d
 
 - App: `http://localhost:8080`
 - Adminer: `http://localhost:8081`
-- Grafana: `http://localhost:3000` (default: `admin` / `CHANGE_ME`)
+- Grafana: `http://localhost:3000` (credentials from `.env`)
 - Loki API: `http://localhost:3100`
 
 ## Notes
