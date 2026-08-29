@@ -20,6 +20,8 @@ The repository now includes:
 cp .env.example .env
 ```
 
+Then fill required blank values in `.env`.
+
 2. Start with PostgreSQL:
 
 ```bash
