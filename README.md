@@ -38,7 +38,7 @@ docker compose --profile mariadb up -d app-mariadb adminer loki promtail grafana
 
 - App: `http://localhost:8080`
 - Adminer: `http://localhost:8081`
-- Grafana: `http://localhost:3000` (default: `admin` / `admin`)
+- Grafana: `http://localhost:3000` (default: `admin` / `CHANGE_ME`)
 - Loki API: `http://localhost:3100`
 
 ## Notes
