@@ -24,14 +24,14 @@ cp .env.example .env
 
 ```bash
 docker compose --profile postgres up -d postgres
-docker compose --profile postgres up -d app adminer loki promtail grafana
+docker compose --profile postgres up -d app-postgres adminer loki promtail grafana
 ```
 
 Or start with MariaDB:
 
 ```bash
 docker compose --profile mariadb up -d mariadb
-docker compose --profile mariadb up -d app adminer loki promtail grafana
+docker compose --profile mariadb up -d app-mariadb adminer loki promtail grafana
 ```
 
 3. Open:
@@ -45,4 +45,4 @@ docker compose --profile mariadb up -d app adminer loki promtail grafana
 
 - App logs are written to container stdout and scraped by Promtail to Loki.
 - Update `.env` values to match your application database settings.
-- Start only one database profile (`postgres` or `mariadb`) and ensure it is healthy before running the app.
+- Start only one database profile (`postgres` or `mariadb`), which starts the matching app container with a health-checked dependency.
