@@ -44,6 +44,8 @@ docker compose --profile mariadb up -d
 ## Notes
 
 - App logs are written to container stdout and scraped by Promtail to Loki.
+- Loki runs with its default local config (`/etc/loki/local-config.yaml`).
+- Promtail reads host Docker JSON logs from `/var/lib/docker/containers` (host-level read access for log shipping).
 - Update `.env` values to match your application database settings.
 - `DB_HOST`/`DB_PORT` are profile-specific by default (`postgres:5432`, `mariadb:3306`); only override if needed.
 - Start only one database profile (`postgres` or `mariadb`), which starts the matching app container with a health-checked dependency.
