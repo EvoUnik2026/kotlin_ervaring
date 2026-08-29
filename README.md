@@ -43,3 +43,4 @@ docker compose --profile mariadb up -d
 
 - App logs are written to container stdout and scraped by Promtail to Loki.
 - Update `.env` values to match your application database settings.
+- Start only one database profile (`postgres` or `mariadb`) and ensure it is healthy before running the app.
