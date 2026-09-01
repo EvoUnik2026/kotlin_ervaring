@@ -1,4 +1,4 @@
-# kotlin_ervaring
+# courseflow
 
 Kotlin training project with a ready-to-use Docker stack for web application development.
 
